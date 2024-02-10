@@ -1,3 +1,43 @@
+# ADSS-Video-ML-Model
+
+A Machine Learning model that process the video recorded by deployed drones during an emergency or SOS.
+
+## Introduction to the Video Model
+
+The Video model takes text input from the deployed drone and process what can be seen in the situation going on. The Model has been trained to recognize various objects like guns, and various situations like a fire breakout. The output is then used in further security sequences. 
+
+## Features
+
+#### 1. Taking visual input
+The Model accepts visual input provided by the drones deployed and processes the frames in it. 
+   
+#### 2. Processing visual input
+The Model has been trained to process what visual input it receives from the drone of the emergency site and to classify the threat going on into varying levels. It has been trained with multiple images and visuals to make sure that it gives high accuracy of recognition of what is happening.
+   
+#### 3. Classifying threat levels
+The Models classifies the level of threat and reports back accordingly so that necessary actions can be taken.
+
+
+## Working of the Video Model
+
+Take a look around
+
+<img src="https://github.com/SkyGuard-ADSS/Adss_Video_model/assets/152146397/caa35b22-3bc8-45af-890f-726e09bc0c5c" style="width:150px;">   
+
+<img src="https://github.com/SkyGuard-ADSS/Adss_Video_model/assets/152146397/a6e27444-0e54-4b43-ad9c-8ce9790106a0" style="width:150px;">      
+
+<img src="https://github.com/SkyGuard-ADSS/Adss_Video_model/assets/152146397/a05817a1-e2d7-4c99-9a28-5fc93c579ea4" style="width:150px;">
+
+## Future Goals
+
+1. To train our Model to recognize multiple kinds of emergency situations.
+2. Make the model more versatile
+3. Allow the Model to recognize even more common disasters, common weapons and more.
+
+
+
+For understanding the implementation of YOLOv7, continue reading...
+
 # Official YOLOv7
 
 Implementation of paper - [YOLOv7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors](https://arxiv.org/abs/2207.02696)
