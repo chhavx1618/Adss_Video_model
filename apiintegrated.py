@@ -1,5 +1,5 @@
 import os
-from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi import FastAPI, File, UploadFile, HTTPException, Request
 from fastapi.responses import JSONResponse
 import shutil
 from pathlib import Path
@@ -67,7 +67,7 @@ def convert_to_webm(input_path, output_path):
         raise HTTPException(status_code=500, detail=f"Video conversion failed: {e}")
     
     
-def detect_objects(image_path, weights_path):
+def detect_objectsi(image_path, weights_path):
     # Run YOLOv7 detection on the input image
     command = f"python detect.py --weights {weights_path} --source {image_path}"
 
@@ -107,7 +107,7 @@ async def detect_image(file: UploadFile = File(...)):
         weights_path = "runs/train/exp4/weights/epoch_829.pt"
 
         # Perform object detection using YOLOv7
-        output_image_path = detect_objects(image_path, weights_path)
+        output_image_path = detect_objectsi(image_path, weights_path)
 
         # Upload the result image to Cloudinary
         upload_response = cloudinary.uploader.upload(
@@ -151,7 +151,7 @@ async def detect_video(file: UploadFile = File(...)):
         weights_path = "runs/train/exp4/weights/epoch_829.pt"  # Replace with your actual path
 
         # Perform object detection using your existing logic to get the result video path
-        result_path = detect_objects(video_path, weights_path)
+        result_path = detect_objectsv(video_path, weights_path)
 
         # Convert the output video to WebM format
         output_webm_path = upload_folder / f"{Path(file.filename).stem}.webm"
@@ -183,14 +183,12 @@ async def detect_video(file: UploadFile = File(...)):
         raise HTTPException(status_code=500, detail=f"An error occurred: {e}")
 
 
-
-@app.route('/predict', methods=['POST'])
-def predict():
-    data = request.get_json()
+@app.post('/predict')
+async def predict(request: Request):
+    data = await request.json()
     text = data['text']
     prediction = predict_class(text)
-    return jsonify({'class': prediction})
-
+    return JSONResponse({'class': prediction})
 
 if __name__ == "__main__":
     import uvicorn
