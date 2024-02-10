@@ -1,0 +1,8 @@
+train: D:/python/yolov7-20240207T231332Z-001/yolo_v7/train.txt
+val: D:/python/yolov7-20240207T231332Z-001/yolo_v7/val.txt
+
+# number of classes
+nc: 3
+
+# class names
+names: ['gun', 'knife', 'fire']

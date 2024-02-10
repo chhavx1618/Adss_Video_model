@@ -1,0 +1,34 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+opencv-python = "*"
+numpy = "*"
+matplotlib = "*"
+pandas = "*"
+torch = "*"
+torchvision = "*"
+torchaudio = "*"
+tqdm = "*"
+pyyaml = "*"
+seaborn = "*"
+scipy = "*"
+fastapi = "*"
+uvicorn = "*"
+python-multipart = "*"
+moviepy = "*"
+cloudinary = "*"
+install = "*"
+firebase-admin = "*"
+boto3 = "*"
+flask = "*"
+nltk = "*"
+tensorflow = "*"
+scikit-learn = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
